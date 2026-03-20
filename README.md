@@ -1,198 +1,46 @@
 📊 Customer Shopping Behavior Analysis
+
+Python • SQL • Power BI | End-to-End Data Analytics Project
+
 🔍 Overview
 
-This project analyzes customer shopping behavior using transactional data to uncover patterns in spending, customer segments, and purchase drivers. The goal is to help businesses improve customer engagement, optimize marketing strategies, and increase revenue.
+Analyzed customer transaction data to identify spending patterns, customer segments, and key purchase drivers to support business decision-making.
 
 Business Problem:
-“How can the company leverage consumer shopping data to identify trends, improve customer engagement, and optimize marketing and product strategies?”
+How can customer data be used to improve engagement, marketing, and revenue?
 
 📁 Dataset
 
-Total Records: 3,900 purchases
+3,900 records | 18 features
 
-Features: 18 columns
+Includes demographics, purchase behavior, discounts, and reviews
 
-Missing Values: 37 (Review Rating column)
+Handled missing values (Review Rating) using median
 
-Key Data Includes:
+⚙️ Workflow
 
-Customer demographics (Age, Gender, Location, Subscription Status)
+Python: Data cleaning, EDA, feature engineering
 
-Purchase details (Item, Category, Amount, Season)
+SQL: Business queries (segmentation, revenue, discounts)
 
-Behavior data (Discount usage, Frequency, Reviews, Shipping type)
+Power BI: Interactive dashboard
 
-🛠️ Tools & Technologies
+📊 Key Insights
 
-Python (Pandas, NumPy, Matplotlib, Seaborn)
+Revenue: Male (157,890) > Female (75,191)
 
-SQL (PostgreSQL)
+Express shipping users spend more ($60.48 vs $58.46)
 
-Power BI
+3116 loyal customers → strong retention
 
-Jupyter Notebook
+Top products rely ~50% on discounts → margin risk
 
-Gamma (Presentation)
+💡 Business Impact
 
-⚙️ Project Workflow
-1. Data Preparation (Python)
+Identified discount-heavy products affecting profitability
 
-Loaded dataset using Pandas
+Highlighted subscription growth opportunity
 
-Handled missing values (median imputation for review ratings)
+Revealed high-value customer segments for targeting
 
-Standardized column names (snake_case)
-
-Feature engineering:
-
-Created age_group
-
-Derived purchase frequency
-
-Removed redundant columns (promo_code_used)
-
-Loaded cleaned data into PostgreSQL
-
-2. Data Analysis (SQL)
-
-Key business queries performed:
-
-Revenue by gender
-
-High-spending discount users
-
-Top-rated products
-
-Shipping type comparison
-
-Subscription vs non-subscription revenue
-
-Customer segmentation (New, Returning, Loyal)
-
-Top products per category
-
-Revenue by age group
-
-Example query:
-
-SELECT item_purchased,
-       ROUND(100.0 * SUM(CASE WHEN discount_applied = 'Yes' THEN 1 ELSE 0 END)/COUNT(*),2) AS discount_rate
-FROM customer
-GROUP BY item_purchased
-ORDER BY discount_rate DESC
-LIMIT 5;
-
-📊 Key Insights (ACTUAL — not generic)
-
-Revenue by Gender
-
-Male: 157,890
-
-Female: 75,191
-
-Top Rated Products
-
-Gloves (3.86), Sandals (3.84), Boots (3.82)
-
-Shipping Behavior
-
-Express: $60.48 avg
-
-Standard: $58.46 avg
-→ Express users spend more
-
-Subscription Impact
-
-Subscribers: 62,645 revenue
-
-Non-subscribers: 170,436 revenue
-→ Large revenue still comes from non-subscribers
-
-Customer Segments
-
-Loyal: 3116
-
-Returning: 701
-
-New: 83
-
-Discount Dependency (Top Products)
-
-Hat: 50%
-
-Sneakers: 49.66%
-
-Coat: 49.07%
-
-📈 Dashboard (Power BI)
-
-An interactive dashboard was created to visualize:
-
-Revenue trends
-
-Customer segmentation
-
-Category-wise sales
-
-Age group analysis
-
-Subscription insights
-
-(Refer to dashboard screenshot in repository)
-
-💡 Business Recommendations
-
-Increase Subscription Conversion
-
-Most revenue comes from non-subscribers → opportunity gap
-
-Target High-Spending Discount Users
-
-These users spend above average even with discounts
-
-Promote Express Shipping
-
-Higher average purchase value
-
-Focus on Loyal Customers
-
-Majority of users fall in this segment
-
-Optimize Discount Strategy
-
-Some products heavily rely on discounts → margin risk
-
-▶️ How to Run
-# Clone repo
-git clone https://github.com/your-username/customer-behavior-analysis.git
-
-# Install dependencies
-pip install -r requirements.txt
-
-# Run notebook
-jupyter notebook
-SQL
-
-Import cleaned data into PostgreSQL
-
-Run queries from customer_behavior_sql_queries.sql
-
-📂 Project Structure
-customer-behavior-analysis/
-│── data/
-│── notebooks/
-│── sql/
-│── dashboard/
-│── presentation/
-│── README.md
-🚀 Outcome
-
-This project demonstrates:
-
-End-to-end data analysis workflow
-
-SQL-based business problem solving
-
-Data visualization & storytelling
-
-Real-world decision-making insights
+▶️ Run Project
