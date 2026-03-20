@@ -43,4 +43,3 @@ Highlighted subscription growth opportunity
 
 Revealed high-value customer segments for targeting
 
-▶️ Run Project
